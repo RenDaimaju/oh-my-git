@@ -1,5 +1,11 @@
 PSORG=$PS1;
 
+if [ -f ~/.git-completion.bash ]; then
+  source ~/.git-completion.bash
+  # PS1='[\u@\h \W$(__git_ps1 " (%s)"]\$ '
+  PS1='\[\e[1;37m\]\[\e[1;32m\]\u\[\e[0;39m\]@\[\e[1;36m\]\h\[\e[0;39m\]:\[\e[1;33m\]\w\[\e[0;39m\]\[\e[1;35m\]\[\e[0;39m\] \[\e[1;37m\]\[\e[0;39m\]\n\$ '
+fi
+
 if [ -n "${BASH_VERSION}" ]; then
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     source ${DIR}/base.sh
